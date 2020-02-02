@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./plantillas/plantillaHF.xhtml">
+            <ui:define name="content">
+                <section class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 pad15mg formBG">
+                            <h:form id="creaUsuarioForm">  
+                                <p:growl id="msg" showDetail="true" life="3000" />
+                                <h:panelGrid id="loginPanel" columns="1" cellpadding="2" class="col-md-12 h5">
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <h:outputLabel for="nombre" value="Nombre:" />
+                                            <p:inputText id="nombre" required="true" requiredMessage="Nombre Obligatorio"
+                                                         value="#{crear_usuario.nombre_clte}" class="form-control">
+                                                <p:ajax event="blur" process="nombre"
+                                                        update="mensajeNombre"
+                                                        listener="#{crear_usuario.validaNombre()}"/>
+                                            </p:inputText>
+                                            <h:outputText id="mensajeNombre" 
+                                                          value="#{crear_usuario.mensajeNombre}" class="text-danger"/>
+                                        </div>                                    
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <h:outputLabel for="ape1" value="Primer apellido:" />
+                                            <p:inputText id="ape1" required="true" requiredMessage="Apellido Obligatorio"
+                                                         value="#{crear_usuario.apellido1}" class="form-control">
+                                                <p:ajax event="blur" process="ape1"
+                                                        update="mensajeApellido1"
+                                                        listener="#{crear_usuario.validaApellido1()}"/>
+                                            </p:inputText>
+                                            <h:message for="ape1" class="text-danger"/>
+                                            <h:outputText id="mensajeApellido1" 
+                                                          value="#{crear_usuario.mensajeApellido1}"
+                                                          class="text-danger"/>     
+                                        </div>
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <h:outputLabel for="ape2" value="Segundo apellido:" />
+                                            <p:inputText id="ape2" required="true" requiredMessage="Apellido Obligatorio"
+                                                         value="#{crear_usuario.apellido2}" class="form-control">
+                                                <p:ajax event="blur" process="ape2"
+                                                        update="mensajeApellido2"
+                                                        listener="#{crear_usuario.validaApellido2()}"/>
+                                            </p:inputText>
+                                            <h:message for="ape2" class="text-danger"/>
+                                            <h:outputText id="mensajeApellido2" 
+                                                          value="#{crear_usuario.mensajeApellido2}"
+                                                          class="text-danger"/>                                   
+                                        </div>
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <h:outputLabel for="correo" value="Correo:" />
+                                            <p:inputText id="correo" required="true" requiredMessage="Correo Obligatorio"
+                                                         value="#{crear_usuario.correo_clte}" class="form-control">
+                                                <p:ajax event="blur" process="correo"
+                                                        update="mensajeCorreo"
+                                                        listener="#{crear_usuario.validaCorreo()}"/>
+                                            </p:inputText>
+                                            <h:message for="correo" class="text-danger"/>
+                                            <h:outputText id="mensajeCorreo" 
+                                                          value="#{crear_usuario.mensajeCorreo}"
+                                                          class="text-danger"/>                                  
+                                        </div>
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <h:outputText value="Contraseña:" />
+                                            <p:password id="pass" value="#{crear_usuario.pass_clte}" required="true"
+                                                        requiredMessage="Contraseña Obligatoria" feedback="true" />                                       
+                                        </div>
+                                        <!--:::::::::::::::::::::::::::::::::::::-->
+                                        <div class="row">
+                                            <div class="mt-4 centro">
+                                                <h:commandButton id="bloquearBoton" value="Crear cuenta" action="#{crear_usuario.registraClte()}"
+                                                                 class="btn btn-primary"/>     
+                                            </div>                            
+                                        </div>
+                                    </h:panelGrid>                                                             
+                            </h:form>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

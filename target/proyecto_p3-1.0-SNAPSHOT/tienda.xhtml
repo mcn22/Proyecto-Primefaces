@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition template="./plantillas/plantillaHF.xhtml">
+            <ui:define name="content">
+                <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 mt-5">
+                            <h:form id="form">
+                                <p:dataGrid var="producto" value="#{tienda.listaProds}" columns="3" layout="grid"
+                                            rows="12" paginator="true" id="prods"
+                                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                            rowsPerPageTemplate="6,12,16">
+                                    <f:facet name="header">
+                                        Lista de productos
+                                    </f:facet>
+                                    <p:panel header="#{producto.nombre}" style="text-align:center">
+                                        <h:panelGrid columns="1" style="width:100%" class="mt-2">
+                                            <p:graphicImage cache="false" name="images/prods/#{producto.urlImg}.jpg" class="img-fluid"/>
+                                            <h:outputText class="h4" value="#{producto.nombre}" />
+                                            <h:outputText value="$#{producto.precio}" />
+                                            <p:commandLink update=":form:detalleProducto" oncomplete="PF('prodDialog').show()" title="Ver detalles">
+                                                <h:outputText styleClass="pi pi-eye" value="Ver detalles" style="margin:0 auto;"/>
+                                                <f:setPropertyActionListener value="#{producto}" target="#{tienda.seleccionProd}" />
+                                            </p:commandLink>
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:dataGrid>
+                                <p:dialog header="Informacion " widgetVar="prodDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                                    <p:outputPanel id="detalleProducto" style="text-align:center;">
+                                        <p:panelGrid  columns="2" rendered="#{not empty tienda.seleccionProd}" columnClasses="label,value">
+                                            <f:facet name="header">
+                                                <p:graphicImage cache="false" name="images/prods/#{tienda.seleccionProd.urlImg}.jpg" class="img-fluid"/>
+                                            </f:facet>
+                                            <h:outputText value="Id:" />
+                                            <h:outputText value="#{tienda.seleccionProd.idProd}" />
+                                            <h:outputText value="Nombre" />
+                                            <h:outputText value="#{tienda.seleccionProd.nombre}" />
+                                            <h:outputText value="Descripcion" />
+                                            <h:outputText value="#{tienda.seleccionProd.descripcion}"/>
+                                            <h:outputText value="Precio" />
+                                            <h:outputText value="$#{tienda.seleccionProd.precio}" />
+                                            <!--            ***                -->
+                                        </p:panelGrid>
+                                        <button class="btn btn-primary mt-2">Agregar al carrito</button>
+                                        <!--Cambiar a un <p:commandButton>
+                                        para agregar al carrito utilizar tienda.seleccionProd
+                                        que guarda el objeto seleccionado, pedir en *** la cantidad 
+                                        para hacer la multiplicacion por el precio.
+                                        Guardar en una lista el carrito.
+                                        -->
+                                    </p:outputPanel>
+                                </p:dialog>                                   
+                            </h:form>
+                        </div>
+                    </div>                    
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

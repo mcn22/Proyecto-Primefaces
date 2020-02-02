@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./plantillas/plantillaHF.xhtml">
+
+            <ui:define name="content">
+                <section class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 pad15mg formBG">
+                            <h:form id="loginForm">  
+                                <p:growl id="msg" showDetail="true" life="3000" />
+                                <h:panelGrid id="loginPanel" columns="1" cellpadding="2" class="col-md-12 h5">
+                                    <!--:::::::::::::::::::::::::::::::::::::-->
+                                    <div class="row">
+                                        <h:outputText value="Correo:"/>
+                                        <p:inputText id="correo" value="#{login.correo_clte}" ></p:inputText>
+                                        <p:message for="correo" ></p:message>
+                                    </div>                                    
+                                    <!--:::::::::::::::::::::::::::::::::::::-->
+                                    <div class="row">
+                                        <h:outputText value="Contraseña:" />
+                                        <p:password id="pass" value="#{login.pass_clte}" feedback="false"></p:password>
+                                        <p:message for="pass"></p:message>   
+                                    </div>
+                                    <!--:::::::::::::::::::::::::::::::::::::-->
+                                    <div class="row">
+                                        <p:commandButton  action="#{login.validarUsuario()}" value="Acceder" 
+                                                          update="loginForm" ajax="true"></p:commandButton>                                  
+                                    </div>
+                                    <!--:::::::::::::::::::::::::::::::::::::-->
+                                    
+                                </h:panelGrid>                                                             
+                            </h:form>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 centro">
+                            <h6>No tienes cuenta? <p:link outcome="/crear_usuario.xhtml">Creala aquí</p:link> </h6> 
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+
+            <ui:define name="bottom">              
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

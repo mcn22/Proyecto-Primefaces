@@ -1,0 +1,73 @@
+body{
+    background-image: url("../img/fondo.jpg");
+    background-repeat: repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cabeza{
+    background-color:#000;
+    opacity: 0.8;
+    padding: 20px;
+    text-align: center;
+}
+
+.pie{
+    background-color: #454d55;
+    opacity: 0.8;
+    text-align: center;
+    color: whitesmoke;
+    width: 100%;
+    bottom: 0;
+    padding: 40px;
+    position: relative;
+}
+
+.pad15mg{
+    text-align: center;
+    padding: 15px;
+    margin: 5% 5% 2% 5%;
+}
+
+.centro{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.banner {
+    background: url(../img/inicio/banner.jpg) center;
+    background-size: cover;
+    position: relative;
+}
+
+.img {
+    background-size: cover;
+    position: relative;
+}
+
+
+.banner .fondo {
+    background: rgba(2, 6, 11, 0.4);
+}
+
+.textoJustificado{
+    text-align: justify;
+}
+
+.marca{
+    border: solid black 2px;
+}
+
+.formBG{
+    border: solid #818182 1px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.bg{
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+com\Login.class
+com\Tienda.class
+com\Crear_usuario.class
+dao\Producto.class
+com\mycompany\proyecto_p3\JAXRSConfiguration.class
+dao\Cliente_datos.class
+com\Plantilla.class
+com\mycompany\proyecto_p3\resources\JavaEE8Resource.class
+dao\Conexion.class
+dao\ProductoRepo.class
+dao\ValidacionesCrearUsuario.class
+dao\Cliente.class

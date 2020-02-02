@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./plantillas/plantillaHF.xhtml">
+            <ui:define name="content">
+                <section class="banner">
+                    <div class="fondo">
+                        <div class="container">
+                            <div class="row fullscreen align-items-center">
+                                <div class="col-lg-5 col-md-6 m-5 pad15mg">
+                                    <h1 class="text-white">Compra desde la comodidad de tu hogar</h1>
+                                    <p class="text-white textoJustificado">dolor sit amet, consectetuer adipiscing elit. 
+                                        Aenean commodo ligula eget dolor. Aenean massa. 
+                                        Cum sociis natoque penatibus et magnis dis 
+                                        parturient montes, nascetur ridiculus mus.
+                                        Donec quam felis, ultricies nec, pellentesque
+                                        eu, pretium quis, sem.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>                      
+                    </div>
+                </section>
+                <section class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 col-sm-12 mt-5" align="center">
+                            <p:imageSwitch effect="fade" id="fadeEffect" class="mt-2">
+                                <ui:repeat value="#{verProductos.listaSlide}" var="image" id="fadeEffectImages">
+                                    <p:graphicImage name="images/slide_index/#{image}.jpg" id="image" class="img-fluid"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+                        </div>
+                        <div class="col-md-4 col-sm-12 mt-5" align="center">
+                            <div class="row">
+                                <h2>Ve a la tienda por la mejor calidad.</h2>
+                                <p class="textoJustificado">dolor sit amet, consectetuer adipiscing elit. 
+                                    Aenean commodo ligula eget dolor. Aenean massa. 
+                                    Cum sociis natoque penatibus et magnis dis 
+                                    parturient montes, nascetur ridiculus mus.
+                                    Donec quam felis, ultricies nec, pellentesque
+                                    eu, pretium quis, sem.
+                                </p>   
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 centro">
+                                    <button onclick="location.href = '/proyecto_p3/faces/tienda.xhtml'" type="button" class="btn btn-primary">
+                                        Ir a la tienda</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container">
+                    <div class="row align-items-center textoJustificado mt-4">                        
+                        <div class="col-md-5 col-sm-12 mt-3">
+                            <h2>Compras inteligentes desde tu hogar.</h2>
+                            <p>dolor sit amet, consectetuer adipiscing elit. 
+                                Aenean commodo ligula eget dolor. Aenean massa. 
+                                Cum sociis natoque penatibus et magnis dis 
+                                parturient montes, nascetur ridiculus mus.
+                                Donec quam felis, ultricies nec, pellentesque
+                                eu, pretium quis, sem.
+                            </p> 
+                        </div> 
+                        <div class="col-md-6 col-sm-12 offset-md-1 mt-4">
+                            <img class="img-fluid" src="img/inicio/inicio-comodo.jpg" alt=""/>  
+                        </div> 
+                    </div>                                                 
+                </section>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+        <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/estilos.css" rel="stylesheet" type="text/css"/>
+        <title>ProyectoP3</title>
+        <f:event type="preRenderView" listener="#{plantilla.verificarSesion()}"/>
+    </h:head>
+    <h:body>
+        <div id="top">
+            <ui:insert name="top">
+                <header class="cabeza">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <nav class="col-md-12">
+                                <h:form >  
+                                    <p:growl id="messages"/>
+                                    <p:menubar>                                        
+                                        <p:menuitem value="Inicio" url="/proyecto_p3/faces/index.xhtml"/>
+                                        <p:menuitem value="Sobre nosotros"/>
+                                        <p:menuitem value="Tienda" url="/proyecto_p3/faces/tienda.xhtml"/>
+                                        <p:menuitem value="Información"/>
+                                        <p:menuitem value="#{plantilla.nombre_clte}"/>
+                                        <f:facet name="options">
+                                            <p:commandButton action="#{plantilla.botomInicio()}" value="#{plantilla.mensajeBoton}" 
+                                                             icon="ui-icon-power" />
+                                        </f:facet>
+                                    </p:menubar>
+                                </h:form>
+
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </ui:insert>
+        </div>
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+            </ui:insert>
+        </div>
+        <div >
+            <ui:insert name="bottom">              
+                <footer class="pie mt-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    Copyright &copy; 2019 All rights reserved | Tienda de ropa
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>
